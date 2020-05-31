@@ -121,6 +121,5 @@ def gen_board():
             
             new_bd[i,j] = 0
             n -= 1
-    
-    
+            
     return new_bd, solution
