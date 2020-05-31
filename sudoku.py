@@ -45,6 +45,7 @@ def is_valid(bd, num, coor):
 
 
 def solver(bd):
+  """Solves Sudoku puzzle. Assumes missing values in Numpy Array matrix is coded as 0"""
 
     to_solve = find_missing(bd)
     
@@ -66,7 +67,6 @@ def gen_board():
     """Returns a tuple of randomly generated Sudoku and solution"""
 
     new_bd = np.zeros(81).reshape(9,9).astype('int64')
-    
     new_bd[0,0] = random.randint(1,9)
     new_bd[1,3] = random.randint(1,9)
     
@@ -78,11 +78,8 @@ def gen_board():
             new_bd[1,0] = new_num
         else:
             new_bd[1,0] = new_bd[0,0] + new_bd[1,3]  
-            
-            
-    
+           
     new_bd[2,6]= random.randint(1,9)
-    
     new_bd[3,1]= random.randint(1,9)
     new_bd[4,4]= random.randint(1,9)
     new_bd[5,7]= random.randint(1,9)
@@ -95,8 +92,8 @@ def gen_board():
              new_bd[5,4] = new_num
         else:
             new_bd[5,4] = new_bd[4,4] + new_bd[5,7]
+            
     new_bd[2,6]= random.randint(1,9)
-    
     new_bd[6,2]= random.randint(1,9)
     new_bd[7,5]= random.randint(1,9)
     
